@@ -8,12 +8,12 @@ package main
  *  Filename:    goline-lists.go
  *  Author:      Bryan Matsuo <bmatsuo@soe.ucsc.edu>
  *  Created:     Wed Aug 24 02:07:52 PDT 2011
- *  Description: 
+ *  Description:
  *  Usage:       goline-lists [options] ARGUMENT ...
  */
 import (
 	"fmt"
-	"goline"
+	"github.com/mattbaird/goline"
 )
 
 var opt = parseFlags()

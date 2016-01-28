@@ -7,7 +7,7 @@
  *  Package:     goline
  *  Author:      Bryan Matsuo <bmatsuo@soe.ucsc.edu>
  *  Created:     Sat Aug 13 02:28:54 PDT 2011
- *  Description: 
+ *  Description:
  */
 
 /*
@@ -32,9 +32,11 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
+	log "github.com/Sirupsen/logrus"
 	"io"
 	"os"
 	"reflect"
+
 	"strings"
 	"unicode"
 	"unicode/utf8"
@@ -59,9 +61,11 @@ func fSay(wr io.Writer, msg string, trim bool) (int, error) {
 //  See also, SayTrimmed.
 func Say(msg string) (int, error) {
 	if c, _ := utf8.DecodeLastRuneInString(msg); unicode.IsSpace(c) {
-		return fmt.Print(msg)
+		log.Info(msg)
+		return len(msg), nil
 	}
-	return fmt.Println(msg)
+	log.Info(msg)
+	return len(msg), nil
 }
 
 //  Like Say, but trailing whitespace is removed from the message before
